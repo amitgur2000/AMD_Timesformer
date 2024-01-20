@@ -64,10 +64,10 @@ python setup.py build develop
 
 # How to Train:
 
-python tools/run_net.py --cfg /home/agur/projects/AMD/AMD_Timesformer/configs/AMD_OCT/TimeSformer_AMD_OCT_clasify_sevirity_DB224_FM_C224F38S6D_4gpus.yaml
+python tools/run_net.py --cfg configs/AMD_OCT/TimeSformer_AMD_OCT_clasify_sevirity_DB224_FM_C224F38S6D_4gpus.yaml
 
 # How to test:
 
-python tools/run_net.py --cfg  /home/agur/projects/AMD/AMD_Timesformer/configs/AMD_OCT/TimeSformer_AMD_OCT_clasify_sevirity_TEST_1gpus.yaml
+python tools/run_net.py --cfg  configs/AMD_OCT/TimeSformer_AMD_OCT_clasify_sevirity_TEST_1gpus.yaml
 
 
