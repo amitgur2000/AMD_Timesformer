@@ -58,6 +58,10 @@ For CUDA 11.6 and above, install: conda install -y pytorch torchvision torchaudi
 
 For CUDA 11.8 or CUDA 12:  conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 
+# first time build:
+
+python setup.py build develop
+
 # How to Train:
 
 python tools/run_net.py --cfg /home/agur/projects/AMD/AMD_Timesformer/configs/AMD_OCT/TimeSformer_AMD_OCT_clasify_sevirity_DB224_FM_C224F38S6D_4gpus.yaml
