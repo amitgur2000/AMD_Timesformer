@@ -6,13 +6,21 @@ Timesformer on OCT scan to classify AMD stages
 
 git clone this repo
 
+cd AMD_Timesformer/
+
 conda deactivate 
 
 conda env create -n timesformer --file timesformer.yaml
 
 conda activate timesformer
 
-cd AMD_Timesformer
+# get checkpoint to start: 
+
+cd timesformer/models/
+
+wget https://www.dropbox.com/s/4roflx4q1gscu85/TimeSformer_divST_32x32_224_HowTo100M.pyth
+
+cd ../../
 
 torchvision: pip install torchvision or conda install torchvision -c pytorch
 
