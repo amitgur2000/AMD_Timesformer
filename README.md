@@ -22,6 +22,8 @@ wget https://www.dropbox.com/s/4roflx4q1gscu85/TimeSformer_divST_32x32_224_HowTo
 
 cd ../../
 
+# if the conda env does not work:
+
 torchvision: pip install torchvision or conda install torchvision -c pytorch
 
 fvcore pip (might have issues): pip install 'git+https://github.com/facebookresearch/fvcore'
@@ -57,5 +59,3 @@ For CUDA 11.6 and above, install: conda install -y pytorch torchvision torchaudi
 For CUDA 11.8 or CUDA 12:  conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 
 
-
-cd AMD_Timesformer
