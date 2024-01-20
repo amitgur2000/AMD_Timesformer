@@ -1,0 +1,51 @@
+TRAIN:
+  ENABLE: True
+  DATASET: kinetics
+  BATCH_SIZE: 24
+  EVAL_PERIOD: 1
+  CHECKPOINT_PERIOD: 2
+  AUTO_RESUME: True
+DATA:
+  PATH_TO_DATA_DIR:  /DCAIOCTO/ModelDataZoo/datasets/AMD_data/classify_DB_csv_2/   # /home/agur/projects/AMD/TimeSformer/k600_csv/ 
+  NUM_FRAMES: 32
+  SAMPLING_RATE: 6
+  TRAIN_JITTER_SCALES: [256, 320]
+  TRAIN_CROP_SIZE: 224
+  TEST_CROP_SIZE: 224
+  INPUT_CHANNEL_NUM: [1]
+TIMESFORMER:
+  ATTENTION_TYPE: 'divided_space_time' #'joint_space_time'
+  PRETRAINED_MODEL: /home/agur/projects/AMD/AMD_Timesformer/timesformer/models/TimeSformer_divST_32x32_224_HowTo100M.pyth
+SOLVER:
+  BASE_LR: 0.003
+  LR_POLICY: steps_with_relative_lrs
+  STEPS: [0, 12, 18]
+  LRS: [0.8, 0.1, 0.01]
+  MAX_EPOCH: 20
+  MOMENTUM: 0.9
+  WEIGHT_DECAY: 0.0005
+  OPTIMIZING_METHOD: sgd
+MODEL:
+  MODEL_NAME: vit_base_patch16_224 # TimeSformer
+  NUM_CLASSES: 5
+  ARCH: vit
+  LOSS_FUNC: cross_entropy # bce_logit # bce  
+  CLASSIFY_TYPE: "classes"  # "ordinal_regress" # "regression"
+  # HEAD_ACT: sigmoid # linear #softmax # relu #  leakyrelu # gelu
+  DROPOUT_RATE: 0.5
+TEST:
+  ENABLE: True 
+  DATASET: kinetics
+  BATCH_SIZE: 32
+  NUM_ENSEMBLE_VIEWS: 5
+  NUM_SPATIAL_CROPS: 3
+  SAVE_RESULTS_PATH: './test_results.pickle'
+DATA_LOADER:
+  NUM_WORKERS: 4
+  PIN_MEMORY: True
+NUM_GPUS: 4
+NUM_SHARDS: 1
+RNG_SEED: 0
+OUTPUT_DIR: .
+#TRAIN.CHECKPOINT_FILE_PATH: ./checkpoints/TimeSformer_divST_16x16_448_K600.pyth
+#TRAIN.FINETUNE: True
